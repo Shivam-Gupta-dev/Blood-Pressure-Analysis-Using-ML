@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypertension Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hypertension Prediction</h1>
+        <form action="/" method="POST">
+            <input type="number" name="age" placeholder="Age" required step="any">
+            <input type="number" name="bmi" placeholder="BMI" required step="any">
+            <input type="number" name="bp" placeholder="Blood Pressure" required step="any">
+            <input type="number" name="sugar" placeholder="Blood Sugar" required step="any">
+            <input type="number" name="cholesterol" placeholder="Cholesterol" required step="any">
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+            <h2>{{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
