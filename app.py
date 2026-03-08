@@ -81,11 +81,15 @@ def predict():
             scaled_encoded[10] = sys_cat / 3.0
             scaled_encoded[11] = dia_cat / 3.0
 
-            input_array = np.array(scaled_encoded).reshape(1, -1)
-
             # Predict with model
             if model is not None:
-                prediction = int(model.predict(input_array)[0])
+                import pandas as pd
+                feature_names = ['Gender', 'Age', 'History', 'Patient', 'TakeMedication',
+                               'Severity', 'BreathShortness', 'VisualChanges', 'NoseBleeding',
+                               'Whendiagnoused', 'Systolic', 'Diastolic', 'ControlledDiet']
+                
+                input_df = pd.DataFrame([scaled_encoded], columns=feature_names)
+                prediction = int(model.predict(input_df)[0])
             else:
                 import random
                 prediction = random.randint(0, 3)
