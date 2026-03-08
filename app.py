@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 # Load trained model with error handling
 try:
+    import warnings
+    warnings.filterwarnings("ignore", category=UserWarning)
     model_path = os.path.join(os.path.dirname(__file__), 'model', 'hypertension_model.pkl')
     model = joblib.load(model_path)
 except Exception as e:
