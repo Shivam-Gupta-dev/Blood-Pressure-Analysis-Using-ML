@@ -240,8 +240,10 @@ Possible enhancements include:
 
 Project developed by:
 
-- Shlok  
-- Team Members  
+- Shivam Gupta
+- Shourya Panchariya
+- Shlok Shinde
+- Shivam Vishwakarma
 
 ---
 
