@@ -1,196 +1,145 @@
-# 🩺 Hypertension Prediction System
-
-## 📌 Overview
-The **Hypertension Prediction System** is a machine learning–based healthcare project designed to **predict and classify different stages of hypertension (high blood pressure)** using patient clinical data and lifestyle factors.
-
-The system analyzes health parameters such as blood pressure readings, age, symptoms, medical history, and lifestyle habits to determine the **risk level and stage of hypertension**. It also provides **basic lifestyle recommendations** to help users monitor and manage their health.
-
-This project demonstrates the use of **supervised machine learning algorithms, data preprocessing, feature selection, model evaluation, and prediction pipelines** to build a practical healthcare decision-support tool.
-
-⚠️ **Disclaimer:**  
-This system is intended **only for educational and decision-support purposes** and should **not be used as a substitute for professional medical diagnosis.**
+<div align="center">
+  <h1>🩺 Hypertension Prediction System using Machine Learning</h1>
+  <p><b>An end-to-end AI healthcare tool that predicts and classifies hypertension stages based on clinical data and lifestyle factors.</b></p>
+</div>
 
 ---
 
-# 🎯 Project Objectives
+## 📌 Project Overview
+The **Hypertension Prediction System** is a machine learning-based healthcare application designed to evaluate patient health parameters and predict their risk of high blood pressure. By analyzing a combination of vital signs, medical history, and physical symptoms, the system categorizes the patient's condition into specific stages (Normal, Hypertension Stage-1, Hypertension Stage-2, or Hypertensive Crisis).
 
-The main objectives of this project are:
+The project features a full data science pipeline, from exploratory visual analysis to algorithm training, capped off with a user-friendly Flask web interface for real-time predictions.
 
-- Predict the **stage of hypertension** using patient health data  
-- Apply **machine learning classification algorithms**  
-- Perform **data preprocessing and feature selection**  
-- Evaluate model performance using standard metrics  
-- Provide **risk predictions and recommendations**  
-- Build a **user-friendly interface** for prediction  
+> ⚠️ **Disclaimer:** This system is built for **educational and clinical decision-support purposes only**. It is not a substitute for professional medical diagnosis or treatment.
 
 ---
 
-# 🧠 Machine Learning Workflow
-
-The system follows a standard **machine learning pipeline**:
-
-### 1. Data Collection
-Hypertension dataset containing:
-- Blood pressure readings
-- Age
-- Symptoms
-- Medication status
-- Lifestyle habits
-- Medical history
-
-### 2. Data Preprocessing
-- Handling missing values  
-- Encoding categorical variables  
-- Feature normalization  
-- Data cleaning  
-
-### 3. Exploratory Data Analysis (EDA)
-- Distribution analysis  
-- Correlation analysis  
-- Pattern identification related to hypertension  
-
-### 4. Feature Selection
-Selecting the most relevant features that contribute to hypertension prediction.
-
-### 5. Dataset Splitting
-- Training dataset  
-- Testing dataset  
-
-### 6. Model Training
-Supervised machine learning models used:
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Gradient Boosting
-
-### 7. Model Evaluation
-Models are evaluated using:
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- Confusion Matrix
-
-### 8. Model Selection
-The best-performing model is selected based on evaluation results.
-
-### 9. Prediction Pipeline
-The pipeline accepts **new patient input data** and returns:
-- Hypertension stage classification
-- Risk score
-
-### 10. Recommendation Module
-Provides **basic health and lifestyle recommendations** based on prediction results.
+## 📊 Dataset & Features
+The model is trained on clinical data encompassing various physiological and lifestyle factors. The core features evaluated by the system include:
+* **Vital Signs:** Systolic and Diastolic Blood Pressure.
+* **Demographics:** Age group and Gender.
+* **Medical History:** Past medical history, current patient status, and medication usage.
+* **Symptoms:** Severity of condition, shortness of breath, visual changes, and nosebleeds.
+* **Lifestyle:** Diet control and duration since initial diagnosis.
 
 ---
 
-# ⚙️ Tech Stack
+## 🧠 Methodology & Machine Learning Pipeline
 
-### Programming Language
-- Python
+The project development was structured into three major milestones:
 
-### Libraries
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Seaborn
+### Milestone 1: Data Collection & Preparation
+The raw dataset (`patient_data.csv`) contained categorical and numerical data that required extensive cleaning. We handled missing values, normalized the data, and performed categorical encoding to convert textual data (like "Yes"/"No" and symptom severity) into machine-readable numeric formats, resulting in our finalized `encoded.csv` dataset.
 
-### Tools
-- Jupyter Notebook / Python Scripts
-- Git & GitHub
+### Milestone 2: Exploratory Data Analysis (EDA)
+Extensive visual analysis was conducted to uncover hidden patterns within the patient data. Using libraries like Seaborn and Matplotlib, we mapped out feature distributions, identified correlations between specific symptoms (like shortness of breath) and blood pressure spikes, and determined which features heavily influenced the target variable.
 
-### Interface
-- Simple user interface for patient data input and prediction results
+### Milestone 3: Model Building & Evaluation
+We trained and evaluated multiple supervised machine learning algorithms using an 80/20 train-test split. The performance metrics (Accuracy) are as follows:
+* **Random Forest Classifier:** 100% 
+* **Support Vector Machine (SVM):** 100%
+* **Decision Tree:** 100%
+* **K-Nearest Neighbors (KNN):** 98.1%
+* **Logistic Regression:** 95.1%
+* **Ridge Classifier:** 90.0%
+* **Naive Bayes:** 84.4%
+
+Because of its robust capability to handle non-linear data and prevent overfitting, the **Random Forest** model was serialized (`hypertension_model.pkl`) and selected for the final deployment.
 
 ---
-# 📂 Project Structure
 
-\`\`\`text
+## 💻 Web Deployment (Flask)
+The user interface is powered by a Flask backend (`app.py`). When a user submits their details via the HTML form, the backend dynamically scales and encodes the inputs to match the exact format the Random Forest model expects. It then feeds the data to the `.pkl` model and renders the predicted hypertension stage back to the user on a dedicated results page.
+
+---
+
+## ⚙️ Tech Stack
+* **Programming Language:** Python
+* **Machine Learning & Data Science:** Scikit-learn, Pandas, NumPy
+* **Data Visualization:** Matplotlib, Seaborn
+* **Web Framework:** Flask
+* **Frontend:** HTML5, CSS3
+* **Tools:** Jupyter Notebook, Git, VS Code
+
+---
+
+## 🚀 Installation & Setup Guide
+
+Follow these instructions to clone the repository and run the application on your local machine.
+
+### 1. Clone the Repository
+Open your terminal and run:
+```bash
+git clone [https://github.com/shivam-gupta-dev/blood-pressure-analysis-using-ml.git](https://github.com/shivam-gupta-dev/blood-pressure-analysis-using-ml.git)
+cd blood-pressure-analysis-using-ml
+
+2. Create a Virtual Environment
+It is highly recommended to isolate your project dependencies.
+
+For Windows:
+
+Bash
+python -m venv venv
+venv\Scripts\activate
+For macOS / Linux:
+
+Bash
+python3 -m venv venv
+source venv/bin/activate
+3. Install Dependencies
+Install all the required Python libraries using pip:
+
+Bash
+pip install Flask joblib numpy pandas scikit-learn matplotlib seaborn
+▶️ Running the Application
+Once the setup is complete, you can launch the prediction system.
+
+Ensure you are in the root directory (blood-pressure-analysis-using-ml).
+
+Start the Flask server by running:
+
+Bash
+python app.py
+Open your web browser and navigate to:
+👉 http://127.0.0.1:5000
+
+Enter the required clinical details in the form and click "Predict" to receive the hypertension stage classification!
+
+📂 Project Structure
+Plaintext
 Blood-Pressure-Analysis-Using-ML/
 │
 ├── Milestone 1 - Data_Collection_&_Preparation/
-│   ├── patient_data.csv
-│   └── categorical-encoding.ipynb
+│   ├── patient_data.csv               # Raw dataset
+│   ├── encoded.csv                    # Cleaned & encoded dataset
+│   └── categorical-encoding.ipynb     # Preprocessing scripts
 │
 ├── Milestone 2 - EDA/
-│   └── visual-analysis.ipynb
+│   └── visual-analysis.ipynb          # Exploratory Data Analysis & charts
 │
 ├── Milestone 3 - Model_Building/
-│   └── models.ipynb
+│   └── models.ipynb                   # Algorithm training & evaluation
 │
 ├── model/
-│   └── hypertension_model.pkl     # Trained ML model
+│   └── hypertension_model.pkl         # Serialized Random Forest model
 │
 ├── static/
-│   └── style.css                  # Frontend styling
+│   └── style.css                      # UI styling
 │
 ├── templates/
-│   ├── index.html                 # Input form
-│   └── result.html                # Prediction output
+│   ├── index.html                     # Input form page
+│   └── result.html                    # Output prediction page
 │
-├── app.py                         # Main Flask application
+├── app.py                             # Main Flask application
 └── README.md
-\`\`\`
+🤝 Contributors
+Shivam Gupta
 
----
+Shourya Panchariya
 
-# 🚀 Installation & Setup
+Shlok Shinde
 
-### 1. Clone the Repository
-\`\`\`bash
-git clone https://github.com/yourusername/hypertension-prediction.git
-cd hypertension-prediction
-\`\`\`
+Shivam Vishwakarma
 
-### 2. Create and Activate a Virtual Environment
-**Windows:**
-\`\`\`bash
-python -m venv venv
-venv\Scripts\activate
-\`\`\`
-**Linux / Mac:**
-\`\`\`bash
-python3 -m venv venv
-source venv/bin/activate
-\`\`\`
-
-### 3. Install Dependencies
-Ensure you have the required Python libraries installed:
-\`\`\`bash
-pip install Flask joblib numpy pandas scikit-learn matplotlib seaborn
-\`\`\`
-
----
-
-# ▶️ Running the Project
-
-### 1. (Optional) Re-train the Model
-If you need to re-train the model or generate a new `.pkl` file, open `Milestone 3 - Model_Building/models.ipynb` in Jupyter or VS Code, run all cells, and ensure the save script at the bottom executes successfully.
-
-### 2. Start the Web Server
-Run the Flask application from the root directory:
-\`\`\`bash
-python app.py
-\`\`\`
-
-### 3. View the App
-Open your web browser and navigate to:
-**http://127.0.0.1:5000**
-
-Enter the patient details in the interface to receive the Hypertension stage prediction!
-
----
-
-# 🤝 Contributors
-
-Project developed by:
-* Shivam Gupta
-* Shourya Panchariya
-* Shlok Shinde
-* Shivam Vishwakarma
-
----
-# 📜 License
-
-This project is open-source and available under the **MIT License**.
+📜 License
+This project is open-source and available under the MIT License.
