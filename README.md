@@ -1,6 +1,7 @@
 # 🩺 Hypertension Prediction System
 
 ## 📌 Overview
+
 The **Hypertension Prediction System** is a machine learning–based healthcare project designed to **predict and classify different stages of hypertension (high blood pressure)** using patient clinical data and lifestyle factors.
 
 The system analyzes health parameters such as blood pressure readings, age, symptoms, medical history, and lifestyle habits to determine the **risk level and stage of hypertension**. It also provides **basic lifestyle recommendations** to help users monitor and manage their health.
@@ -16,12 +17,12 @@ This system is intended **only for educational and decision-support purposes** a
 
 The main objectives of this project are:
 
-- Predict the **stage of hypertension** using patient health data  
-- Apply **machine learning classification algorithms**  
-- Perform **data preprocessing and feature selection**  
-- Evaluate model performance using standard metrics  
-- Provide **risk predictions and recommendations**  
-- Build a **user-friendly interface** for prediction  
+- Predict the **stage of hypertension** using patient health data
+- Apply **machine learning classification algorithms**
+- Perform **data preprocessing and feature selection**
+- Evaluate model performance using standard metrics
+- Provide **risk predictions and recommendations**
+- Build a **user-friendly interface** for prediction
 
 ---
 
@@ -30,7 +31,9 @@ The main objectives of this project are:
 The system follows a standard **machine learning pipeline**:
 
 ### 1. Data Collection
+
 Hypertension dataset containing:
+
 - Blood pressure readings
 - Age
 - Symptoms
@@ -39,32 +42,40 @@ Hypertension dataset containing:
 - Medical history
 
 ### 2. Data Preprocessing
-- Handling missing values  
-- Encoding categorical variables  
-- Feature normalization  
-- Data cleaning  
+
+- Handling missing values
+- Encoding categorical variables
+- Feature normalization
+- Data cleaning
 
 ### 3. Exploratory Data Analysis (EDA)
-- Distribution analysis  
-- Correlation analysis  
-- Pattern identification related to hypertension  
+
+- Distribution analysis
+- Correlation analysis
+- Pattern identification related to hypertension
 
 ### 4. Feature Selection
+
 Selecting the most relevant features that contribute to hypertension prediction.
 
 ### 5. Dataset Splitting
-- Training dataset  
-- Testing dataset  
+
+- Training dataset
+- Testing dataset
 
 ### 6. Model Training
+
 Supervised machine learning models used:
+
 - Logistic Regression
 - Decision Tree
 - Random Forest
 - Gradient Boosting
 
 ### 7. Model Evaluation
+
 Models are evaluated using:
+
 - Accuracy
 - Precision
 - Recall
@@ -72,14 +83,18 @@ Models are evaluated using:
 - Confusion Matrix
 
 ### 8. Model Selection
+
 The best-performing model is selected based on evaluation results.
 
 ### 9. Prediction Pipeline
+
 The pipeline accepts **new patient input data** and returns:
+
 - Hypertension stage classification
 - Risk score
 
 ### 10. Recommendation Module
+
 Provides **basic health and lifestyle recommendations** based on prediction results.
 
 ---
@@ -87,9 +102,11 @@ Provides **basic health and lifestyle recommendations** based on prediction resu
 # ⚙️ Tech Stack
 
 ### Programming Language
+
 - Python
 
 ### Libraries
+
 - Pandas
 - NumPy
 - Scikit-learn
@@ -97,42 +114,44 @@ Provides **basic health and lifestyle recommendations** based on prediction resu
 - Seaborn
 
 ### Tools
+
 - Jupyter Notebook / Python Scripts
 - Git & GitHub
 
 ### Interface
+
 - Simple user interface for patient data input and prediction results
 
 ---
 
 # 📂 Project Structure
 
-```
-Hypertension-Prediction/
+\`\`\`text
+Blood-Pressure-Analysis-Using-ML/
 │
-├── data/
-│   └── hypertension_dataset.csv
+├── Milestone 1 - Data*Collection*&\_Preparation/
+│ ├── patient_data.csv
+│ └── categorical-encoding.ipynb
 │
-├── notebooks/
-│   └── EDA_analysis.ipynb
+├── Milestone 2 - EDA/
+│ └── visual-analysis.ipynb
 │
-├── models/
-│   └── trained_model.pkl
+├── Milestone 3 - Model_Building/
+│ └── models.ipynb
 │
-├── src/
-│   ├── data_preprocessing.py
-│   ├── train_model.py
-│   ├── evaluate_model.py
-│   ├── prediction_pipeline.py
-│   └── recommendation_system.py
+├── model/
+│ └── hypertension_model.pkl # Trained ML model
 │
-├── ui/
-│   └── app_interface.py
+├── static/
+│ └── style.css # Frontend styling
 │
-├── requirements.txt
-├── README.md
-└── LICENSE
-```
+├── templates/
+│ ├── index.html # Input form
+│ └── result.html # Prediction output
+│
+├── app.py # Main Flask application
+└── README.md
+\`\`\`
 
 ---
 
@@ -140,99 +159,52 @@ Hypertension-Prediction/
 
 ### 1. Clone the Repository
 
-```bash
+\`\`\`bash
 git clone https://github.com/yourusername/hypertension-prediction.git
 cd hypertension-prediction
-```
+\`\`\`
 
-### 2. Create Virtual Environment
+### 2. Create and Activate a Virtual Environment
 
-```bash
+**Windows:**
+\`\`\`bash
 python -m venv venv
-```
-
-Activate environment:
-
-**Windows**
-
-```bash
 venv\Scripts\activate
-```
-
-**Linux / Mac**
-
-```bash
+\`\`\`
+**Linux / Mac:**
+\`\`\`bash
+python3 -m venv venv
 source venv/bin/activate
-```
-
----
+\`\`\`
 
 ### 3. Install Dependencies
 
-```bash
-pip install -r requirements.txt
-```
+Ensure you have the required Python libraries installed:
+\`\`\`bash
+pip install Flask joblib numpy pandas scikit-learn matplotlib seaborn
+\`\`\`
 
 ---
 
 # ▶️ Running the Project
 
-### Train the Model
+### 1. (Optional) Re-train the Model
 
-```bash
-python train_model.py
-```
+If you need to re-train the model or generate a new `.pkl` file, open `Milestone 3 - Model_Building/models.ipynb` in Jupyter or VS Code, run all cells, and ensure the save script at the bottom executes successfully.
 
-### Run Prediction System
+### 2. Start the Web Server
 
-```bash
-python app_interface.py
-```
+Run the Flask application from the root directory:
+\`\`\`bash
+python app.py
+\`\`\`
 
-Enter patient details in the interface to receive:
+### 3. View the App
 
-- Hypertension stage prediction  
-- Risk score  
-- Health recommendations  
+Open your web browser and navigate to:
+**http://127.0.0.1:5000**
 
----
-
-# 📊 Model Evaluation Metrics
-
-The models were evaluated using:
-
-- Accuracy  
-- Precision  
-- Recall  
-- F1 Score  
-- Confusion Matrix  
-
-These metrics help determine the most reliable model for hypertension stage classification.
-
----
-
-# 🧪 Use Cases
-
-This system can be used in:
-
-- Preventive health screening  
-- Hypertension risk monitoring  
-- Clinical decision support systems  
-- Patient awareness tools  
-- Healthcare data analysis  
-
----
-
-# 🔮 Future Improvements
-
-Possible enhancements include:
-
-- Deep learning models for improved accuracy  
-- Integration with wearable health devices  
-- Real-time patient monitoring  
-- Mobile application interface  
-- Cloud deployment  
-- Integration with hospital systems  
+Enter the patient details in the interface to receive the Hypertension stage prediction!
 
 ---
 
